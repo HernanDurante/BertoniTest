@@ -1,0 +1,12 @@
+<div class="mt-5 mb-3 container">
+    <div class="input-group"> 
+        <select (change)="currentAlbum = $event.target.value" class="form-control">
+            <option value="0">--Seleccione un Álbum--</option>
+            <option *ngFor="let album of albums" value={{album.id}}>
+                {{album.title}}
+            </option>
+        </select>
+        <button (click)="selectedAlbum = currentAlbum" class="btn btn-primary input-group-append" [disabled]="currentAlbum == 0">Visualizar Álbum</button>
+    </div>
+</div>
+<app-photos [(selectedAlbum)]="selectedAlbum" *ngIf="selectedAlbum"></app-photos>

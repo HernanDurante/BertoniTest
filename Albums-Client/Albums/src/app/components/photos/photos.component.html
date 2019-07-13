@@ -1,0 +1,19 @@
+  <div class="table-responsive" style="max-height: 400px;">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Titulo</th>
+        <th scope="col">Foto</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let photo of photos" style="cursor: pointer;" (click)="selectedPhoto = photo.id">
+            <td>{{photo.id}}</td>
+            <td>{{photo.title}}</td>
+            <td><img [src]="photo.thumbnailUrl" [alt]="photo.title" class="img-responsive"></td>
+        </tr>
+    </tbody>
+  </table>
+</div>
+<app-comments [(selectedAlbum)]= "selectedAlbum" [(selectedPhoto)]= "selectedPhoto" *ngIf="selectedPhoto !== 0"></app-comments>
